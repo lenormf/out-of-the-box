@@ -18,3 +18,6 @@ hook global InsertCompletionHide .* %{
 
 # Display line numbers in all newly created windows
 add-highlighter global/ number-lines
+
+# Underline search matches in all newly created windows
+add-highlighter global/ dynregex '%reg{/}' 0:+u
