@@ -15,3 +15,6 @@ hook global InsertCompletionHide .* %{
     unmap window insert <tab> <c-n>
     unmap window insert <s-tab> <c-p>
 }
+
+# Display line numbers in all newly created windows
+add-highlighter global/ number-lines
