@@ -1,0 +1,41 @@
+out-of-the-box
+==============
+
+https://github.com/mawww/kakoune[Kakoune] is a code editor that aims at
+providing an editing language (aka "keys") as well as means for users to
+configure the functionalities they expect from the tool (saving buffers on
+exit, custom commands/mappings etc).
+
+However, Kakoune is not an Integrated Development Environment (IDE), and
+therefore doesn't provide with certain features that a regular user would
+expect to be there out of the box. These features, such as readline-type
+bindings in insert mode or line indentation with the tabulation key, are
+easily implemented using basic primitives (e.g. hooks, mapping, commands).
+
+New users might not have the inclination or the knowledge to implement what
+they expect from the editor, and this repository is here to fix that.
+
+How to use
+----------
+
+Clone the repository, load it from your Kakoune configuration, and you're
+done!
+
+```
+$ git clone https://github.com/lenormf/out-of-the-box.git
+$ echo 'source /path/to/out-of-the-box/oob.kak' >> ~/.config/kak/kakrc
+```
+
+How to contribute
+-----------------
+
+Create an issue describing the feature you'd like to have available out of
+the box. The requirements for the features are:
+
+* no external dependency to third party tools that are not reasonably
+  expected to be installed on a generic desktop system
+* no external dependency to a third party plugin
+* the code should ideally be short, kept within a single mapping/command
+* comments should be written that explain what snippets do
+
+Pull requests are also welcome!
