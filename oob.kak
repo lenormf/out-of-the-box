@@ -21,3 +21,13 @@ add-highlighter global/ number-lines
 
 # Underline search matches in all newly created windows
 add-highlighter global/ dynregex '%reg{/}' 0:+u
+
+# Minimal set of readline mappings
+map -docstring "move the cursor to the start of the line"        global insert <c-a> '<a-;>gh'
+map -docstring "move the cursor to the end of the line"          global insert <c-e> '<esc>glli'
+map -docstring "delete the character under the anchor"           global insert <c-d> '<a-;>c'
+map -docstring "delete from the cursor to the start of the line" global insert <c-u> '<esc>h<a-h>c'
+map -docstring "delete from the cursor to the end of the line"   global insert <c-k> '<esc><a-l>c'
+map -docstring "delete until the next word boundary"             global insert <a-d> '<esc>ec'
+map -docstring "delete until the previous word boundary"         global insert <c-w> '<esc>bc'
+map -docstring "paste before the cursor"                         global insert <c-y> '<esc>Pi'
