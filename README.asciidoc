@@ -15,6 +15,16 @@ easily implemented using basic primitives (e.g. hooks, mapping, commands).
 New users might not have the inclination or the knowledge to implement what
 they expect from the editor, and this repository is here to fix that.
 
+Overview of the features
+------------------------
+
+You can have an overview of the features enabled by this plugin with the
+following command:
+
+```
+$ grep '^#' oob.kak
+```
+
 How to use
 ----------
 
