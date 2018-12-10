@@ -36,7 +36,7 @@ map -docstring "paste before the cursor"                         global insert <
 define-command -hidden oob-clipboard-copy %{
     execute-keys <a-|> %sh{
         if command -v xsel >/dev/null; then
-            printf 'xsel -i'
+            printf 'xsel -ib'
         elif command -v xclip >/dev/null; then
             printf 'xclip -i'
         fi
@@ -45,7 +45,7 @@ define-command -hidden oob-clipboard-copy %{
 define-command -hidden oob-clipboard-paste-before %{
     execute-keys ! %sh{
         if command -v xsel >/dev/null; then
-            printf 'xsel -o'
+            printf 'xsel -ob'
         elif command -v xclip >/dev/null; then
             printf 'xclip -o'
         fi
@@ -54,7 +54,7 @@ define-command -hidden oob-clipboard-paste-before %{
 define-command -hidden oob-clipboard-paste-after %{
     execute-keys <a-!> %sh{
         if command -v xsel >/dev/null; then
-            printf 'xsel -o'
+            printf 'xsel -ob'
         elif command -v xclip >/dev/null; then
             printf 'xclip -o'
         fi
