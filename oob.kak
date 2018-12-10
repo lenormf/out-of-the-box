@@ -31,3 +31,35 @@ map -docstring "delete from the cursor to the end of the line"   global insert <
 map -docstring "delete until the next word boundary"             global insert <a-d> '<esc>ec'
 map -docstring "delete until the previous word boundary"         global insert <c-w> '<esc>bc'
 map -docstring "paste before the cursor"                         global insert <c-y> '<esc>Pi'
+
+# Set of mappings to copy/paste data to/from the system clipboard
+define-command -hidden oob-clipboard-copy %{
+    execute-keys <a-|> %sh{
+        if command -v xsel >/dev/null; then
+            printf 'xsel -i'
+        elif command -v xclip >/dev/null; then
+            printf 'xclip -i'
+        fi
+    } <ret>
+}
+define-command -hidden oob-clipboard-paste-before %{
+    execute-keys ! %sh{
+        if command -v xsel >/dev/null; then
+            printf 'xsel -o'
+        elif command -v xclip >/dev/null; then
+            printf 'xclip -o'
+        fi
+    } <ret>
+}
+define-command -hidden oob-clipboard-paste-after %{
+    execute-keys <a-!> %sh{
+        if command -v xsel >/dev/null; then
+            printf 'xsel -o'
+        elif command -v xclip >/dev/null; then
+            printf 'xclip -o'
+        fi
+    } <ret>
+}
+map -docstring "copy the current selection to the system clipboard" global user y ': oob-clipboard-copy<ret>'
+map -docstring "paste data from the system clipboard before the selection" global user P ': oob-clipboard-paste-before<ret>'
+map -docstring "paste data from the system clipboard after the selection" global user p ': oob-clipboard-paste-after<ret>'
