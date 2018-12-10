@@ -39,6 +39,8 @@ define-command -hidden oob-clipboard-copy %{
             printf 'xsel -ib'
         elif command -v xclip >/dev/null; then
             printf 'xclip -i'
+        elif command -v pbcopy >/dev/null; then
+            printf 'pbcopy'
         fi
     } <ret>
 }
@@ -48,6 +50,8 @@ define-command -hidden oob-clipboard-paste-before %{
             printf 'xsel -ob'
         elif command -v xclip >/dev/null; then
             printf 'xclip -o'
+        elif command -v pbcopy >/dev/null; then
+            printf 'pbpaste'
         fi
     } <ret>
 }
@@ -57,6 +61,8 @@ define-command -hidden oob-clipboard-paste-after %{
             printf 'xsel -ob'
         elif command -v xclip >/dev/null; then
             printf 'xclip -o'
+        elif command -v pbcopy >/dev/null; then
+            printf 'pbpaste'
         fi
     } <ret>
 }
