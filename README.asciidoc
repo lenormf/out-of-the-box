@@ -46,6 +46,7 @@ the box. The requirements for the features are:
   expected to be installed on a generic desktop system
 * no external dependency to a third party plugin
 * the code should ideally be short, kept within a single mapping/command
+* shell scripts should be portable
 * comments should be written that explain what snippets do
 
 Pull requests are also welcome!
